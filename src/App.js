@@ -51,7 +51,7 @@ class App extends React.Component {
 
         {this.renderRedirect()}
         <Switch>
-            <Route path="/" component={Home} exact />
+            <Route path={process.env.PUBLIC_URL + "/"} component={Home} exact />
             <Route path="/upload/:label" 
                     render={(props) => (
                     <Upload {...props} onChangeHandlerZoom={this.onChangeHandlerZoom} onChangeHandlerEngagement={this.onChangeHandlerEngagement} />
