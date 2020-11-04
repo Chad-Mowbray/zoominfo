@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react'
-import { BrowserRouter, Route, Switch, Link, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Home from './components/Home'
 import Show from './components/Show'
@@ -15,12 +15,6 @@ class App extends React.Component {
     engagementFile: ''
   }
 
-  // fetchFileResp = async (file) => {
-  //   const resp = await postZoom(file)
-  //   console.log("resp: ", resp)
-  //   this.setState({fileResponse: resp})
-
-  // }
 
   onChangeHandlerZoom = event => {
     console.log("zoom")
@@ -69,9 +63,6 @@ class App extends React.Component {
                     )}
                     />
           
-
-            {/* <Route path="/about" component={About} />
-            <Route path="/shop" component={Shop} /> */}
         </Switch>
 
       </div>
