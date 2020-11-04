@@ -7,6 +7,7 @@ import Show from './components/Show'
 import postZoom  from './api/api'  
 import Upload from './components/Upload'
 
+
 class App extends React.Component {
 
   state = {
@@ -19,15 +20,15 @@ class App extends React.Component {
   onChangeHandlerZoom = event => {
     console.log("zoom")
     const zoomFile = event.target.files[0]
-    console.log(zoomFile)
+    // console.log(zoomFile)
     this.setState({zoomFile: zoomFile, redirect: true})
 
   }
 
   onChangeHandlerEngagement = event => {
-    console.log("engagement")
+    // console.log("engagement")
     const engagementFile = event.target.files[0]
-    console.log(engagementFile)
+    // console.log(engagementFile)
     this.setState({engagementFile: engagementFile, redirect: true})
   }
 
@@ -40,7 +41,7 @@ class App extends React.Component {
       }
 
       if (this.state.redirect) {
-        return <Redirect to={`/show/{label}`} />
+        return <Redirect to={`${process.env.PUBLIC_URL}/show/${label}`} />
       }
   }
 
@@ -52,12 +53,12 @@ class App extends React.Component {
         {this.renderRedirect()}
         <Switch>
             <Route path={process.env.PUBLIC_URL + "/"} component={Home} exact />
-            <Route path="/upload/:label" 
+            <Route path={process.env.PUBLIC_URL + "/upload/:label"} 
                     render={(props) => (
                     <Upload {...props} onChangeHandlerZoom={this.onChangeHandlerZoom} onChangeHandlerEngagement={this.onChangeHandlerEngagement} />
                     )}
                      exact />
-            <Route path="/show/:label" 
+            <Route path={process.env.PUBLIC_URL + "/show/:label"} 
                     render={(props) => (
                     <Show {...props} zoomFile={this.state.zoomFile} engagementFile={this.state.engagementFile} />
                     )}
